@@ -1,0 +1,72 @@
+package edu.zuj.vp.week3.lecture2;
+
+import javax.swing.JOptionPane;
+
+public class joptionpane {
+
+    public static void main(String[] args) {
+        /*
+         * Question 1:
+         * Write a Java program using JOptionPane that asks the user to enter an integer number,
+         * checks if the number is even or odd. If it is even, display the sum of the number with itself.
+         * If it is odd, display the square of the number (multiplied by itself).
+         * 
+         * Question 2:
+         * Write a Java program using JOptionPane and StringBuffer that acts as a currency converter.
+         * The program asks the user to enter an amount of money, displays a selection menu using StringBuffer,
+         * and uses a switch statement to convert the amount into different currencies (USD, EUR, SAR, EGP).
+         */
+
+        // --- السؤال الأول (Even or Odd Calculation) ---
+        String inp = JOptionPane.showInputDialog("Enter a number:");
+        int numInp = Integer.parseInt(inp);
+        if (numInp % 2 == 0) {
+            JOptionPane.showMessageDialog(null, "The result = " + (numInp + numInp));
+        } else {
+            JOptionPane.showMessageDialog(null, "The result = " + (numInp * numInp));
+        }
+
+        // --- السؤال الثاني (Currency Converter Menu) ---
+        JOptionPane.showMessageDialog(null, "Second Question");
+        String amount = JOptionPane.showInputDialog("Enter an amount of money:");
+        int nAmount = Integer.parseInt(amount);
+
+        StringBuffer truns = new StringBuffer();
+        truns.append("================\n");
+        truns.append("Choose a transaction:\n");
+        truns.append("Choose a number:\n");
+        truns.append("1- Into USD\n");
+        truns.append("2- Into EUR\n");
+        truns.append("3- Into SAR\n");
+        truns.append("4- Into EGP\n");
+        truns.append("5- Another\n");
+        truns.append("================\n");
+
+        String chos = JOptionPane.showInputDialog(truns.toString());
+        int nChos = Integer.parseInt(chos);
+        switch (nChos) {
+            case 1:
+                double usd = nAmount * 1.411;
+                JOptionPane.showMessageDialog(null, "The USD = " + usd);
+                break;
+            case 2:
+                double eur = nAmount * 1.30;
+                JOptionPane.showMessageDialog(null, "The EUR = " + eur);
+                break;
+            case 3:
+                double sar = nAmount * 5.31;
+                JOptionPane.showMessageDialog(null, "The SAR = " + sar);
+                break;
+            case 4:
+                double egp = nAmount * 78.07;
+                JOptionPane.showMessageDialog(null, "The EGP = " + egp);
+                break;
+            case 5:
+                JOptionPane.showMessageDialog(null, "Not available");
+                break;
+            default:
+                JOptionPane.showMessageDialog(null, "Not available and goodbye");
+                break;
+        }
+    }
+}
